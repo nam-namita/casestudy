@@ -7,26 +7,31 @@ import com.cognizant.truyum.model.MenuItem;
 
 public class CartDaoCollectionImplTest {
 
+	public static CartDao cartDao = new CartDaoCollectionImpl();
+	
 	public static void main(String[] args) throws CartEmptyException {
 		
 		testAddCartItem();
-		//testGetAllCartItems();
+		testGetAllCartItems();
 		testRemoveCartItem();
 	}
 
-	public static void testAddCartItem() throws CartEmptyException {
+	public static void testAddCartItem() {
 
-		CartDaoCollectionImpl cartDaoCollectionImpl = new CartDaoCollectionImpl();
-		CartDao cartDao = cartDaoCollectionImpl;
-		cartDao.addCartItem(1, 000004);
-		cartDao.addCartItem(1, 000001);
-		List<MenuItem> menuItemList = cartDao.getAllCartItems(1);
-		System.out.println("MenuItem list :" + menuItemList);
+		//CartDao cartDao = new CartDaoCollectionImpl();
+		cartDao.addCartItem(1, 1);
+		try {
+			List<MenuItem> cartItemList = cartDao.getAllCartItems(1);
+			cartItemList.forEach(System.out::println);
+		} catch (CartEmptyException e) {
+
+			e.printStackTrace();
+		}
 
 	}
 
 	public static void testGetAllCartItems() {
-		CartDao cartDao = new CartDaoCollectionImpl();
+		
 		List<MenuItem> menuItemList;
 		try {
 			menuItemList = cartDao.getAllCartItems(1);
@@ -40,16 +45,14 @@ public class CartDaoCollectionImplTest {
 	}
 
 	public static void testRemoveCartItem() {
-		CartDao cartDao = new CartDaoCollectionImpl();
-		cartDao.removeCartItem(1, 000004);
+		cartDao.removeCartItem(1, 1);
+		List<MenuItem> cartItemList;
 		try {
-			
-			List<MenuItem> updatedmenuItem=cartDao.getAllCartItems(1);
-			System.out.println(updatedmenuItem);
-			
+			cartItemList = cartDao.getAllCartItems(1);
+			cartItemList.forEach(System.out::println);
 		} catch (CartEmptyException e) {
-			System.out.println("Cart is empty");
-		
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 

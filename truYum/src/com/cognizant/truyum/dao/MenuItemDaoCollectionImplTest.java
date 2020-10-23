@@ -9,12 +9,13 @@ import com.cognizant.truyum.util.DateUtil;
 public class MenuItemDaoCollectionImplTest {
 	
 	public static void main(String[] args) throws ParseException {
-		System.out.println("only for admin");
+		System.out.println("Menu List Admin Printing...");
 		testGetMenuItemListAdmin();
-		System.out.println("Only for customer");
-		testGetMenuItemListCustomer();
-		System.out.println("after modifying");
+		System.out.println("Menu List Customer Printing...");
+		testGetMenuListCustomer();
+		System.out.println("Modified Menu and Printing to check...");
 		testModifyMenuItem();
+		System.out.println("Completed.");
 	}
 
 	static void testGetMenuItemListAdmin() {
@@ -34,7 +35,7 @@ public class MenuItemDaoCollectionImplTest {
 
 	}
 
-	static void testGetMenuItemListCustomer() {
+	static void testGetMenuListCustomer() {
 		MenuItemDaoCollectionImpl menuItemDaoCollectionImpl = new MenuItemDaoCollectionImpl();
 
 		List<MenuItem> menuItems = menuItemDaoCollectionImpl
@@ -49,9 +50,10 @@ public class MenuItemDaoCollectionImplTest {
 	}
 
 	static void testModifyMenuItem() throws ParseException {
-
-		MenuItem menuItem = new MenuItem(000002, "Cake", 80.00f, true,
-				DateUtil.convertToDate("11/12/2019"), "Main Course", false);
+		
+		
+		MenuItem menuItem = new MenuItem(1, "Sandwich", 109.00f, true, new DateUtil().convertToDate("02/07/2017"),
+				"MainCourse", true);
 		MenuItemDaoCollectionImpl menuItemDaoCollectionImpl = new MenuItemDaoCollectionImpl();
 		MenuItemDao menuItemDao = menuItemDaoCollectionImpl;
 		menuItemDao.modifyMenuItem(menuItem);
