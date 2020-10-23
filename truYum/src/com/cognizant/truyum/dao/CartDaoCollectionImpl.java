@@ -50,6 +50,7 @@ public class CartDaoCollectionImpl implements CartDao {
 	public List<MenuItem> getAllCartItems(long userid)
 			throws CartEmptyException {
 
+		@SuppressWarnings("deprecation")
 		Cart cart = userCarts.get(new Long(userid));
 		List<MenuItem> menuItemList = cart.getMenuItemList();
 		if (menuItemList == null || menuItemList.size() == 0) {
