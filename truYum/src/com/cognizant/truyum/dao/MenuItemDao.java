@@ -1,8 +1,7 @@
 package com.cognizant.truyum.dao;
-
+import com.cognizant.truyum.model.MenuItem;
 import java.util.List;
 
-import com.cognizant.truyum.model.MenuItem;
 
 public interface MenuItemDao {
 	public List<MenuItem> getMenuItemListAdmin();

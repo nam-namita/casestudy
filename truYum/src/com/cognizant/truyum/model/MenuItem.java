@@ -79,5 +79,28 @@ public class MenuItem {
 		this.freeDelivery = freeDelivery;
 	} 
 	
+	@Override
+	public String toString() {
+		return "MenuItem [id=" + id + ", name=" + name + ", price=" + price
+				+ ", active=" + active + ", dateOfLaunch=" + dateOfLaunch
+				+ ", category=" + category + ", freeDelivery=" + freeDelivery
+				+ "]";
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MenuItem other = (MenuItem) obj;
+		
+		if (id != other.id)
+			return false;
+		
+		return true;
+	}
 
 }

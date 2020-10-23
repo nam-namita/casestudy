@@ -1,5 +1,5 @@
 package com.cognizant.truyum.dao;
-import com.cognizant.truyum.model.*;
+import com.cognizant.truyum.model.MenuItem;
 
 import java.util.List;
 
