@@ -16,6 +16,28 @@ public class CartDaoCollectionImpl implements CartDao {
 	}
 
 	@Override
+	public List<MenuItem> getAllCartItems(long userid)
+			throws CartEmptyException {
+
+		@SuppressWarnings("deprecation")
+		Cart cart = userCarts.get(new Long(userid));
+		List<MenuItem> menuItemList = cart.getMenuItemList();
+		if (menuItemList == null || menuItemList.size() == 0) {
+			throw new CartEmptyException("Cart is empty");
+		}
+		double total = 0.0;
+		for (MenuItem menuItem : menuItemList) {
+			total = total + menuItem.getPrice();
+
+		}
+		cart.setTotal(total);
+
+		
+		return menuItemList;
+	}
+
+	
+	@Override
 	public void addCartItem(long userid, long menuItemId) {
 		
 		List<MenuItem> menuItemList;
@@ -44,27 +66,6 @@ public class CartDaoCollectionImpl implements CartDao {
 
 		}
 
-	}
-
-	@Override
-	public List<MenuItem> getAllCartItems(long userid)
-			throws CartEmptyException {
-
-		@SuppressWarnings("deprecation")
-		Cart cart = userCarts.get(new Long(userid));
-		List<MenuItem> menuItemList = cart.getMenuItemList();
-		if (menuItemList == null || menuItemList.size() == 0) {
-			throw new CartEmptyException("Cart is empty");
-		}
-		double total = 0.0;
-		for (MenuItem menuItem : menuItemList) {
-			total = total + menuItem.getPrice();
-
-		}
-		cart.setTotal(total);
-
-		
-		return menuItemList;
 	}
 
 	
