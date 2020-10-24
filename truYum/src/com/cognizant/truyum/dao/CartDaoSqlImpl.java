@@ -52,7 +52,7 @@ public class CartDaoSqlImpl implements CartDao {
 		try {
 			Connection connection = ConnectionHandler.getConnection();
 			
-			String query = "SELECT * FROM MENU_ITEMS WHERE ID IN (SELECT CT_MENU_ID FROM CART WHERE CT_USER_ID = ?)";
+			String query = "SELECT id,item_name,price,active,date_of_launch,category,free_delivery FROM MENU_ITEMS WHERE ID IN (SELECT CT_MENU_ID FROM CART WHERE CT_USER_ID = ?)";
 			PreparedStatement prepareStatement = connection.prepareStatement(query);
 			
 			prepareStatement.setLong(1, userId);

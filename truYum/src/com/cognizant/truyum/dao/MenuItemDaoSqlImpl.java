@@ -19,7 +19,15 @@ public class MenuItemDaoSqlImpl implements MenuItemDao {
 		List<MenuItem> menuItemsList = new ArrayList<>();
 		try {
 			Connection connection = ConnectionHandler.getConnection();
-			String query = "SELECT * FROM MENU_ITEMS";
+			String query = "SELECT id,item_name,price,active,date_of_launch,category,free_delivery FROM MENU_ITEMS";
+			/*id int auto_increment primary key ,
+			item_name varchar(45),
+			price float,
+			active varchar(10),
+			date_of_launch date,
+			category varchar(45),
+			free_delivery varchar(10)
+			*/
 			preparedStatement = connection.prepareStatement(query);
 
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -51,7 +59,7 @@ public class MenuItemDaoSqlImpl implements MenuItemDao {
 		List<MenuItem> menuItemsList = new ArrayList<>();
 		try {
 			Connection connection = ConnectionHandler.getConnection();
-			String query = "SELECT * FROM MENU_ITEMS WHERE ACTIVE = TRUE AND DATE_OF_LAUNCH < now()";
+			String query = "SELECT id,item_name,price,active,date_of_launch,category,free_delivery FROM MENU_ITEMS WHERE ACTIVE = TRUE AND DATE_OF_LAUNCH < now()";
 			preparedStatement = connection.prepareStatement(query);
 
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -117,7 +125,7 @@ public class MenuItemDaoSqlImpl implements MenuItemDao {
 		MenuItem menuItem = null;
 		try {
 			Connection connection = ConnectionHandler.getConnection();
-			String query = "SELECT * FROM MENU_ITEMS WHERE ID =?";
+			String query = "SELECT id,item_name,price,active,date_of_launch,category,free_delivery FROM MENU_ITEMS WHERE ID =?";
 			preparedStatement = connection.prepareStatement(query);
 			
 			preparedStatement.setLong(1, menuItemId);
