@@ -39,7 +39,7 @@ public class CartDaoSqlImplTest {
 			}
 		} catch (CartEmptyException e) {
 			System.out.printf("The user id number %f did not buy anything\n",user_id);
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 	}
 	
@@ -53,7 +53,7 @@ public class CartDaoSqlImplTest {
 			}
 		} catch (CartEmptyException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		long menuItemId = 1;
 		cartDaoImpl.removeCartItem(userId, menuItemId);
@@ -64,7 +64,7 @@ public class CartDaoSqlImplTest {
 			}
 		} catch (CartEmptyException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		System.out.println();
 	}
