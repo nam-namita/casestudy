@@ -35,6 +35,7 @@ public class MenuItemDaoSqlImpl implements MenuItemDao {
 				MenuItem item = new MenuItem(id, name, price, active, dateOfLaunch, category, freeDelivery);
 				menuItemsList.add(item);
 			}
+			preparedStatement.clearParameters();
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -50,7 +51,7 @@ public class MenuItemDaoSqlImpl implements MenuItemDao {
 		List<MenuItem> menuItemsList = new ArrayList<>();
 		try {
 			Connection connection = ConnectionHandler.getConnection();
-			String query = "SELECT * FROM MENU_ITEMS WHERE ACTIVE = TRUE AND date_Of_Launch < now()";
+			String query = "SELECT * FROM MENU_ITEMS WHERE ACTIVE = TRUE AND DATE_OF_LAUNCH < now()";
 			preparedStatement = connection.prepareStatement(query);
 
 			ResultSet resultSet = preparedStatement.executeQuery();
@@ -66,6 +67,7 @@ public class MenuItemDaoSqlImpl implements MenuItemDao {
 				MenuItem item = new MenuItem(id, name, price, active, dateOfLaunch, category, freeDelivery);
 				menuItemsList.add(item);
 			}
+			preparedStatement.clearParameters();
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -99,6 +101,7 @@ public class MenuItemDaoSqlImpl implements MenuItemDao {
 			}else {
 				System.out.println("Query Unsuccessful");
 			}
+			preparedStatement.clearParameters();
 
 
 		} catch (ClassNotFoundException e) {
@@ -131,6 +134,7 @@ public class MenuItemDaoSqlImpl implements MenuItemDao {
 				boolean freeDelivery = resultSet.getInt(7)==1;
 				menuItem = new MenuItem(id, name, price, active, dateOfLaunch, category, freeDelivery);
 			}
+			preparedStatement.clearParameters();
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
