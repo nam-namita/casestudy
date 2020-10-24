@@ -14,14 +14,14 @@ public class ConnectionHandler {
 	  
 	  
 	  try {
-		  FileInputStream fis =new FileInputStream("C:\\GenC_877602\\truYum\\src\\connection.properties");
+		  FileInputStream fis =null;
+		  fis= new FileInputStream("connection.properties");
 		  //"truYum/src/connection.properties"
 		  //"C:\\GenC_877602\\truYum\\src\\connection.properties"
 		  prop.load(fis);
 	       
 		  Class.forName(prop.getProperty("driver"));//loading Driver Class
-		  con=DriverManager.getConnection(prop.getProperty("connection-url"),prop.getProperty("user"),
-				  prop.getProperty("password"));
+		  con=DriverManager.getConnection(prop.getProperty("connection-url"),prop.getProperty("user"),prop.getProperty("password"));
 	  }
 	  
 	  

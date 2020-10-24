@@ -23,10 +23,10 @@ public class CartDaoSqlImplTest {
 	public static void testAddCartItem() {
 		CartDaoSqlImpl cartDaoImpl = new CartDaoSqlImpl();
 		cartDaoImpl.addCartItem(2, 2);
-		cartDaoImpl.addCartItem(1, 2);
-		cartDaoImpl.addCartItem(2, 2);
-		cartDaoImpl.addCartItem(2, 3);
-		cartDaoImpl.addCartItem(2, 4);
+		//cartDaoImpl.addCartItem(1, 2);
+		//cartDaoImpl.addCartItem(2, 2);
+		//cartDaoImpl.addCartItem(2, 3);
+		//cartDaoImpl.addCartItem(2, 4);
 	}
 	
 	public static void testGetAllCartItem() {

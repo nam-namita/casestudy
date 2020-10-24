@@ -21,10 +21,11 @@ public class CartDaoSqlImpl implements CartDao {
 			
 			Connection connection = ConnectionHandler.getConnection();
 			
-			String query = "INSERT INTO CART(CT_USER_ID, CT_MENU_ID) VALUES (?, ?)";
+			String query = "INSERT INTO CART(CT_ID,CT_USER_ID, CT_MENU_ID) VALUES (?, ?, ?)";
 			PreparedStatement preparedStatement = connection.prepareStatement(query);
-			preparedStatement.setLong(1, userId);
-			preparedStatement.setLong(2, menuItemId);
+			preparedStatement.setLong(1, 1);
+			preparedStatement.setLong(2, userId);
+			preparedStatement.setLong(3, menuItemId);
 			
 			if(preparedStatement.executeUpdate() > 0) {
 				System.out.println("Query Successful");
@@ -63,14 +64,14 @@ public class CartDaoSqlImpl implements CartDao {
 				String name = resultSet.getString(2);
 				float price = resultSet.getFloat(3);
 				total += price;
-				boolean active = resultSet.getInt(4)==1;
+				boolean active = resultSet.getBoolean(4);
 				Date dateOfLaunch = resultSet.getDate(5);
 				String category = resultSet.getString(6);
-				boolean freeDelivery = resultSet.getInt(7)==1;
+				boolean freeDelivery = resultSet.getBoolean(7);
 				MenuItem menuItem = new MenuItem(id, name, price, active, dateOfLaunch, category, freeDelivery);
 				menuItemList.add(menuItem);
 			}
-			preparedStatement.clearParameters();
+			//preparedStatement.clearParameters();
 			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -100,7 +101,7 @@ public class CartDaoSqlImpl implements CartDao {
 			}else {
 				System.out.println("Query Unsuccessful");
 			}
-			preparedStatement.clearParameters();
+			//preparedStatement.clearParameters();
 			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

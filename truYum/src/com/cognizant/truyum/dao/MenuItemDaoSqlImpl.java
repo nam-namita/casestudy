@@ -28,10 +28,10 @@ public class MenuItemDaoSqlImpl implements MenuItemDao {
 				long id = resultSet.getLong(1);
 				String name = resultSet.getString(2);
 				float price = resultSet.getFloat(3);
-				boolean active = resultSet.getInt(4)==1;
+				boolean active = resultSet.getBoolean(4);
 				Date dateOfLaunch = resultSet.getDate(5);
 				String category = resultSet.getString(6);
-				boolean freeDelivery = resultSet.getInt(7)==1;
+				boolean freeDelivery = resultSet.getBoolean(7);
 				MenuItem item = new MenuItem(id, name, price, active, dateOfLaunch, category, freeDelivery);
 				menuItemsList.add(item);
 			}
@@ -60,10 +60,10 @@ public class MenuItemDaoSqlImpl implements MenuItemDao {
 				long id = resultSet.getLong(1);
 				String name = resultSet.getString(2);
 				float price = resultSet.getFloat(3);
-				boolean active = resultSet.getInt(4)==1;
+				boolean active = resultSet.getBoolean(4);
 				Date dateOfLaunch = resultSet.getDate(5);
 				String category = resultSet.getString(6);
-				boolean freeDelivery = resultSet.getInt(7)==1;
+				boolean freeDelivery = resultSet.getBoolean(7);
 				MenuItem item = new MenuItem(id, name, price, active, dateOfLaunch, category, freeDelivery);
 				menuItemsList.add(item);
 			}
@@ -128,10 +128,10 @@ public class MenuItemDaoSqlImpl implements MenuItemDao {
 				long id = resultSet.getLong(1);
 				String name = resultSet.getString(2);
 				float price = resultSet.getFloat(3);
-				boolean active = resultSet.getInt(4)==1;
+				boolean active = resultSet.getBoolean(4);
 				Date dateOfLaunch = resultSet.getDate(5);
 				String category = resultSet.getString(6);
-				boolean freeDelivery = resultSet.getInt(7)==1;
+				boolean freeDelivery = resultSet.getBoolean(7);
 				menuItem = new MenuItem(id, name, price, active, dateOfLaunch, category, freeDelivery);
 			}
 			preparedStatement.clearParameters();
