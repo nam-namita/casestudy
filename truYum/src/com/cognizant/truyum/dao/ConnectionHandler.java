@@ -14,9 +14,10 @@ public class ConnectionHandler {
 	  
 	  
 	  try {
-		  FileInputStream fis =new FileInputStream("truYum/src/connection.properties");
+		  FileInputStream fis =new FileInputStream("C:\\GenC_877602\\truYum\\src\\connection.properties");
+		  //"truYum/src/connection.properties"
 		  //"C:\\GenC_877602\\truYum\\src\\connection.properties"
-	       prop.load(fis);
+		  prop.load(fis);
 	       
 		  Class.forName(prop.getProperty("driver"));//loading Driver Class
 		  con=DriverManager.getConnection(prop.getProperty("connection-url"),prop.getProperty("user"),

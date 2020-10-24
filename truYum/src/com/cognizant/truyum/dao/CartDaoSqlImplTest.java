@@ -22,7 +22,7 @@ public class CartDaoSqlImplTest {
 	
 	public static void testAddCartItem() {
 		CartDaoSqlImpl cartDaoImpl = new CartDaoSqlImpl();
-		cartDaoImpl.addCartItem(1, 1);
+		cartDaoImpl.addCartItem(2, 2);
 		cartDaoImpl.addCartItem(1, 2);
 		cartDaoImpl.addCartItem(2, 2);
 		cartDaoImpl.addCartItem(2, 3);
@@ -46,7 +46,7 @@ public class CartDaoSqlImplTest {
 	public static void testRemoveCartItem() {
 		CartDaoSqlImpl cartDaoImpl = new CartDaoSqlImpl();
 		long userId = 1;
-		System.out.println("\nBefore Delelting");
+		System.out.println("\nBefore Deleting");
 		try {
 			for(MenuItem item : cartDaoImpl.getAllCartItems(userId)) {
 				System.out.println(item);
@@ -57,7 +57,7 @@ public class CartDaoSqlImplTest {
 		}
 		long menuItemId = 1;
 		cartDaoImpl.removeCartItem(userId, menuItemId);
-		System.out.println("\nAfter Delelting");
+		System.out.println("\nAfter Deleting");
 		try {
 			for(MenuItem item : cartDaoImpl.getAllCartItems(userId)) {
 				System.out.println(item);
